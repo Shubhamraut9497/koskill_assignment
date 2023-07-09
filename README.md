@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # CRM Management System
 
 This is a CRM (Customer Relationship Management) management system that allows users to perform CRUD operations on customer data, authenticate and authorize users, and implement pagination.
@@ -43,7 +42,6 @@ Pagination: The customer list is paginated to enhance the user experience when t
 -Database: MongoDB
 -Installation
 -Clone the repository:
->>>>>>> ccc13e9fb8695063368521d9c7dac007a2e237d9
 
 Navigate to the project directory:
 cd crm-management-system
@@ -110,8 +108,3 @@ Navigate back to the dashboard by using the back button or the navigation menu.<
 </ul>
 License
 This project is licensed under the MIT License.
-<<<<<<< HEAD
-
-Feel free to customize the README file according to your project structure and additional details
-=======
->>>>>>> ccc13e9fb8695063368521d9c7dac007a2e237d9
