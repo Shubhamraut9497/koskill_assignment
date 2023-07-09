@@ -1,5 +1,5 @@
 # CRM Management System
-
+![Project Image](./project.png)
 This is a CRM (Customer Relationship Management) management system that allows users to perform CRUD operations on customer data, authenticate and authorize users, and implement pagination.
 
 ## Features
