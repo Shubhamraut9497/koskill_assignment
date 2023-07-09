@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const { Schema } = mongoose;
-
+//here i have made schema for customer details
 const CustomerSchema = new Schema(
   {
     name: String,
@@ -20,3 +20,4 @@ const CustomerSchema = new Schema(
 
 const CustomerModel = mongoose.model("CustomerDetails", CustomerSchema);
 export default CustomerModel;
+

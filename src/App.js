@@ -11,18 +11,23 @@ import EditCustomer from "./pages/EditCustomer";
 
 function App() {
   return (
-    <UserContextProvider>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<IndexPage />} />
-          <Route path={"/login"} element={<LoginPage />} />
-          <Route path={"/register"} element={<RegisterPage />} />
-          <Route path={"/createNewUser"} element={<CreateNewUser />} />
-          <Route path={"/createNewUser/:id"} element={<CustomerDetailPage/>}/>
-          <Route path={"/edit/:id"} element={<EditCustomer/>}/>
-        </Route>
-      </Routes>
-    </UserContextProvider>
+    <>
+      <UserContextProvider>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<IndexPage />} />
+            <Route path={"/login"} element={<LoginPage />} />
+            <Route path={"/register"} element={<RegisterPage />} />
+            <Route path={"/createNewUser"} element={<CreateNewUser />} />
+            <Route
+              path={"/createNewUser/:id"}
+              element={<CustomerDetailPage />}
+            />
+            <Route path={"/edit/:id"} element={<EditCustomer />} />
+          </Route>
+        </Routes>
+      </UserContextProvider>
+    </>
   );
 }
 

@@ -25,7 +25,6 @@ function CustomerDetailPage() {
   if (!customerInfo) {
     return "";
   }
-  console.log(customerInfo);
 
   return (
     <>

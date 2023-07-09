@@ -7,7 +7,7 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
   const { userInfo, setUserInfo } = useContext(UserContext); // Retrieve values from the UserContext
-
+  console.log(userInfo);
   const apiUrl = process.env.REACT_APP_API_URL;
   
   const submitFormLogin = async (e) => {

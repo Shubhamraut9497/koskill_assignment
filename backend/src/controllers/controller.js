@@ -184,8 +184,8 @@ export const deleteCustomer = async (req, res) => {
   const { id } = req.params;
   try {
     await CustomerDetails.findByIdAndDelete(id);
-    res.json({ message: "Customer deleted successfully." });
+    res.json({ message: "Customer deleted successfully" });
   } catch (error) {
-    res.status(500).json({ error: "Failed to delete customer." });
+    res.status(500).json({ error: "Failed to delete customer" });
   }
 };

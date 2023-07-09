@@ -44,6 +44,7 @@ function EditCustomer() {
     if(response.ok)
     setRedirect(true)
   }
+  console.log("hello");
   if(redirect){
     return <Navigate to={`/createNewUser/${id}`}/>
   }

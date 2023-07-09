@@ -3,12 +3,11 @@ import { format } from "date-fns";
 import { Link } from "react-router-dom";
 
 function Customers({ _id, name, age, occupation, createdAt, phoneNo ,onDelete}) {
-  const apiUrl = process.env.REACT_APP_API_URL;
 
   const handleDelete = async () => {
      onDelete();
   };
-
+   console.log(_id);
   return (
     <tr>
       <td>

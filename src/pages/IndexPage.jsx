@@ -31,7 +31,8 @@ function IndexPage() {
     };
     fetchData();
   }, [searchQuery]);
-
+ 
+  console.log("Index page");
   const handleDeleteCustomer = async (customerId) => {
     try {
       const response = await fetch(`${apiUrl}/createNewUser/${customerId}`, {

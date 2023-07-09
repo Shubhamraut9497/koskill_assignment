@@ -164,16 +164,6 @@ div.post-page a.edit-btn{
   text-decoration: none;
   border-radius: 5px;
 }
-/* .post-loading-wrapper {
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-
-.post-loading {
-  display: flex;
-  gap: 20px;
-
-} */
 
 .post-loading-wrapper {
   background-color: #f2f2f2;

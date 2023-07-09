@@ -9,7 +9,7 @@ const connect=async()=>{
     }).then(()=>{
         console.log("DB connected");
     }).catch((err)=>{
-        console.log(err);
+        console.log("error is" +err);
     })
 }
 export default connect;

@@ -15,7 +15,7 @@ function RegisterPage() {
       body: JSON.stringify({ name,email,password}),
     });
     if (api.status === 200) {
-      alert("Registration Successul");
+      alert("Registration Successully");
       setRedirect(true);
     } else {
       alert("Registration failed");

@@ -17,7 +17,7 @@ const uploadMiddleware = multer({ dest: "uploads/" });
 
 const router = express.Router();
 
-router.use(cookieParser()); // Adding cookieParser middleware to parse cookies
+router.use(cookieParser()); 
 
 router.post("/register", registerUser);
 router.post("/login", LoginUser);
