@@ -31,7 +31,7 @@ function CreateNewUser() {
     try {
       const response = await fetch(`${apiUrl}/createNewUser`, requestOptions);
       if (response.ok) {
-        alert("Registration Successfully");
+        alert("Create User Successfully");
         setRedirect(true);
       } else {
         alert("Registration Failed");
