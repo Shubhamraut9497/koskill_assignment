@@ -7,7 +7,6 @@ function Customers({ _id, name, age, occupation, createdAt, phoneNo ,onDelete}) 
   const handleDelete = async () => {
      onDelete();
   };
-   console.log(_id);
   return (
     <tr>
       <td>

@@ -29,13 +29,14 @@ function CustomerDetailPage() {
   return (
     <>
       <div className="post-page">
-        <div className="edit-row">
+        {userInfo.id===customerInfo.author._id && (<div className="edit-row">
           <Link to={`/edit/${customerInfo._id}`} className="edit-btn">
             <BiEdit />
             Edit Details
           </Link>
-        </div>
-        <div>
+        </div>)}
+        
+        <div style={{marginBottom:"10px"}}>
           <time>
             Created At:{" "}
             {format(new Date(customerInfo.createdAt), "MMM d yyyy HH:mm")}
