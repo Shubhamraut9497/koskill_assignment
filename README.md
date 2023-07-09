@@ -9,12 +9,12 @@ Customer Management: Users can perform CRUD operations (Create, Read, Update, De
 Customer Details: When a user clicks on a customer's name, they will be redirected to a page displaying detailed information about the customer, including their image, age, email, phone number, occupation, and address.
 Pagination: The customer list is paginated to enhance the user experience when there are a large number of customers.
 
-Technologies Used
-Front-end: React.js, HTML, CSS
-Back-end: Node.js, Express.js
-Database: MongoDB
-Installation
-Clone the repository:
+<h3>Technologies Used</h3>
+-Front-end: React.js, HTML, CSS
+-Back-end: Node.js, Express.js
+-Database: MongoDB
+-Installation
+-Clone the repository:
 
 bash
 Copy code
@@ -26,16 +26,16 @@ Copy code
 cd crm-management-system
 Install dependencies for the server:
 
-bash
-Copy code
-npm install
-Install dependencies for the client:
+-bash
+-Copy code
+-npm install
+-Install dependencies for the client:
 
-bash
-Copy code
-cd client
-npm install
-Configure the environment variables:
+-bash
+-Copy code
+-cd client
+-npm install
+-Configure the environment variables:
 
 Create a .env file in the project root directory.
 Define the following environment variables in the .env file:
@@ -54,8 +54,7 @@ Access the application:
 
 Open a web browser and visit http://localhost:3000 to access the CRM management system.
 Usage
-Registration:
-
+<h4>Registration:</h4>
 Click on the "Register" link on the login page.
 Fill in the registration form with the required details.
 Click "Submit" to create a new user account.
@@ -76,5 +75,3 @@ Edit or delete the customer using the provided options.
 Navigate back to the dashboard by using the back button or the navigation menu.
 License
 This project is licensed under the MIT License.
-
-Feel free to customize the README file according to your project structure and additional details
