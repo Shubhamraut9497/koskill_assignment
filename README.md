@@ -24,25 +24,19 @@ This is a CRM (Customer Relationship Management) management system that allows u
    ```bash
    git clone https://github.com/your-username/crm-management-system.git
    ```
+=======
 
-Navigate to the project directory:
-cd crm-management-system
 
-bash
-Copy code
-cd crm-management-system
-Install dependencies for the server:
+-bash
+-Copy code
+-npm install
+-Install dependencies for the client:
 
-bash
-Copy code
-npm install
-Install dependencies for the client:
-
-bash
-Copy code
-cd client
-npm install
-Configure the environment variables:
+-bash
+-Copy code
+-cd client
+-npm install
+-Configure the environment variables:
 
 Create a .env file in the project root directory.
 Define the following environment variables in the .env file:
@@ -67,6 +61,8 @@ Registration:
 
 <ul>
 <li>
+Usage
+<h4>Registration:</h4>
 Click on the "Register" link on the login page.
 Fill in the registration form with the required details.
 Click "Submit" to create a new user account.
@@ -88,5 +84,3 @@ Navigate back to the dashboard by using the back button or the navigation menu.<
 </ul>
 License
 This project is licensed under the MIT License.
-
-Feel free to customize the README file according to your project structure and additional details
