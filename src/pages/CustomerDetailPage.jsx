@@ -51,7 +51,6 @@ function CustomerDetailPage() {
           <h2>Name: {customerInfo.name}</h2>
           <p className="info">
             <a>Age: {customerInfo.age}</a>
-            <br />
           </p>
           <p className="summary">Email : {customerInfo.author.email}</p>
           <p className="summary">phone No. : {customerInfo.phoneNo}</p>

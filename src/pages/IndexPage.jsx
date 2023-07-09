@@ -4,8 +4,10 @@ import Customers from "../components/Customers";
 
 function IndexPage() {
   const [customers, setCustomers] = useState([]);
-  const apiUrl = process.env.REACT_APP_API_URL;
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(false);
+  const apiUrl = process.env.REACT_APP_API_URL;
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
@@ -13,7 +15,7 @@ function IndexPage() {
       setLoading(true);
       try {
         const response = await fetch(
-          `${apiUrl}/createNewUser?search=${searchQuery}`,
+          `${apiUrl}/createNewUser?search=${searchQuery}&limit=10&skip=${(currentPage - 1) * 10}`,
           {
             method: "GET",
             headers: {
@@ -21,18 +23,18 @@ function IndexPage() {
             },
           }
         );
-        const posts = await response.json();
+        const data = await response.json();
+        setCustomers(data.customers);
+        setTotalPages(data.totalPages);
         setLoading(false);
-        setCustomers(posts);
       } catch (error) {
         console.error("Error fetching data:", error);
         setLoading(false);
       }
     };
     fetchData();
-  }, [searchQuery]);
- 
-  console.log("Index page");
+  }, [searchQuery, currentPage]);
+
   const handleDeleteCustomer = async (customerId) => {
     try {
       const response = await fetch(`${apiUrl}/createNewUser/${customerId}`, {
@@ -54,13 +56,38 @@ function IndexPage() {
       console.error("Error deleting user:", error);
     }
   };
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const renderPagination = () => {
+    if (customers.length > 0) {
+      const paginationItems = [];
+      for (let i = 1; i <= totalPages; i++) {
+        paginationItems.push(
+          <button
+            key={i}
+            className={currentPage === i ? "active" : ""}
+            onClick={() => handlePageChange(i)}
+            style={{width:"10%",borderRadius:"20px"}}
+          >
+            {i}
+          </button>
+        );
+      }
+      return <div className="pagination"  style={{ margin: "20px" }}>{paginationItems}</div>;
+    }
+    return null;
+  };
   
+
   return (
     <div style={{ marginTop: "30px" }}>
       <div style={{ marginBottom: "50px" }}>
         <input
           type="text"
-          placeholder="Search for a user"
+          placeholder="Search User"
           className="search_user"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
@@ -101,7 +128,7 @@ function IndexPage() {
         </div>
       ) : (
         <div>
-          {customers.length > 0 ? (
+          {customers && customers.length > 0 ? (
             <table className="customers-table">
               <thead>
                 <tr>
@@ -115,15 +142,21 @@ function IndexPage() {
               </thead>
               <tbody>
                 {customers.map((customer) => (
-                  <Customers key={customer._id} {...customer} onDelete={() => handleDeleteCustomer(customer._id)}/>
+                  <Customers
+                    key={customer._id}
+                    {...customer}
+                    onDelete={() => handleDeleteCustomer(customer._id)}
+                  />
                 ))}
               </tbody>
             </table>
           ) : (
             <p style={{ color: "white" }}>No customers found.</p>
           )}
+          
         </div>
       )}
+      {renderPagination()}
     </div>
   );
 }

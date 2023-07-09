@@ -113,28 +113,44 @@ export const createNewUser = async (req, res) => {
 export const getCustomerData = async (req, res) => {
   try {
     const searchQuery = req.query.search;
+    const page = parseInt(req.query.page) || 1; // Get the page number from query parameters
+    const limit = parseInt(req.query.limit) || 20; // Get the number of items per page from query parameters
+
+    let query = {};
+
+    if (searchQuery) {
+      query.name = { $regex: searchQuery, $options: "i" };
+    }
+
+    const count = await CustomerDetails.countDocuments(query); // Get the total count of customers matching the query
+
+    const totalPages = Math.ceil(count / limit); // Calculate the total number of pages
+
+    const skip = (page - 1) * limit; // Calculate the number of items to skip
+
     let customers;
 
     if (searchQuery) {
-      customers = await CustomerDetails.find({
-        name: { $regex: searchQuery, $options: "i" },
-      })
+      customers = await CustomerDetails.find(query)
         .populate("author", ["email"])
         .sort({ createdAt: -1 })
-        .limit(20);
+        .skip(skip)
+        .limit(limit);
     } else {
-      customers = await CustomerDetails.find({})
+      customers = await CustomerDetails.find(query)
         .populate("author", ["email"])
         .sort({ createdAt: -1 })
-        .limit(20);
+        .skip(skip)
+        .limit(limit);
     }
 
-    res.json(customers);
+    res.json({ customers, totalPages });
   } catch (error) {
     console.error("Error fetching customer data:", error);
     res.status(500).json({ error: "Failed to fetch customer data" });
   }
 };
+
 
 export const getSingleCustomerData = async (req, res) => {
   const { id } = req.params;

@@ -86,7 +86,7 @@ function EditCustomer() {
       style={{color:"black"}}
       onChange={(e) => setFile(e.target.files[0])}
     />
-    <button>Add new User</button>
+    <button>Update User</button>
   </form>
   );
 }

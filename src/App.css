@@ -64,7 +64,7 @@ div.post div.texts h2:hover{
 }
 div.post p.info{
   margin: 6px 0;
-  color:#888;
+  color:#e7dada;
   font-size:0.8rem;
   font-weight: bold;
   display: flex;
@@ -81,6 +81,7 @@ form.login,form.register{
   max-width: 400px;
   margin:0px auto;
 }
+
 input{
   display: block;
   margin-bottom: 5px;
