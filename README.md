@@ -1,4 +1,4 @@
-CRM Management System
+<h1>CRM Management System</h1>
 This is a CRM (Customer Relationship Management) management system that allows users to perform CRUD operations on customer data, authenticate and authorize users, and implement pagination.
 
 Features
@@ -8,6 +8,7 @@ JWT Authentication: User authentication is implemented using JSON Web Tokens (JW
 Customer Management: Users can perform CRUD operations (Create, Read, Update, Delete) on customer data.
 Customer Details: When a user clicks on a customer's name, they will be redirected to a page displaying detailed information about the customer, including their image, age, email, phone number, occupation, and address.
 Pagination: The customer list is paginated to enhance the user experience when there are a large number of customers.
+
 Technologies Used
 Front-end: React.js, HTML, CSS
 Back-end: Node.js, Express.js
