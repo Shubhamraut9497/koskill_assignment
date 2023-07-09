@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+CRM Management System
+This is a CRM (Customer Relationship Management) management system that allows users to perform CRUD operations on customer data, authenticate and authorize users, and implement pagination.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Features
+User Registration: Users can create a new account by providing their details such as name, email, and password.
+User Login: Registered users can log in to the system using their email and password.
+JWT Authentication: User authentication is implemented using JSON Web Tokens (JWT) to securely authenticate and authorize users.
+Customer Management: Users can perform CRUD operations (Create, Read, Update, Delete) on customer data.
+Customer Details: When a user clicks on a customer's name, they will be redirected to a page displaying detailed information about the customer, including their image, age, email, phone number, occupation, and address.
+Pagination: The customer list is paginated to enhance the user experience when there are a large number of customers.
+Technologies Used
+Front-end: React.js, HTML, CSS
+Back-end: Node.js, Express.js
+Database: MongoDB
+Installation
+Clone the repository:
 
-## Available Scripts
+bash
+Copy code
+git clone https://github.com/your-username/crm-management-system.git
+Navigate to the project directory:
 
-In the project directory, you can run:
+bash
+Copy code
+cd crm-management-system
+Install dependencies for the server:
 
-### `npm start`
+bash
+Copy code
+npm install
+Install dependencies for the client:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+bash
+Copy code
+cd client
+npm install
+Configure the environment variables:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the consoles.
+Create a .env file in the project root directory.
+Define the following environment variables in the .env file:
+REACT_APP_API_URL: The URL of the API server.
+JWT_SECRET: Secret key used for JWT authentication.
+Start the server and client:
 
-### `npm test`
+In the project root directory, run:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+bash
+Copy code
+npm run dev
+This will start both the server and client concurrently.
 
-### `npm run build`
+Access the application:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Open a web browser and visit http://localhost:3000 to access the CRM management system.
+Usage
+Registration:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Click on the "Register" link on the login page.
+Fill in the registration form with the required details.
+Click "Submit" to create a new user account.
+Login:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+On the login page, enter your registered email and password.
+Click "Login" to authenticate yourself.
+Dashboard:
 
-### `npm run eject`
+After successful login, you will be redirected to the dashboard.
+The dashboard displays a list of customers.
+Use the search bar to search for specific customers by name.
+Click on a customer's name to view their detailed information.
+Customer Details:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The customer details page displays the customer's image, age, email, phone number, occupation, and address.
+Edit or delete the customer using the provided options.
+Navigate back to the dashboard by using the back button or the navigation menu.
+License
+This project is licensed under the MIT License.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to customize the README file according to your project structure and additional details

@@ -34,7 +34,7 @@ function CreateNewUser() {
         alert("Create User Successfully");
         setRedirect(true);
       } else {
-        alert("Registration Failed");
+        alert("Failed to create new user");
       }
     } catch (error) {
       console.error("Error:", error);
