@@ -23,6 +23,7 @@ function Header() {
       credentials:"include",
       method:"POST",
     })
+    alert("Successfully logout");
     setUserInfo(null);
   }
   const email=userInfo?.email;

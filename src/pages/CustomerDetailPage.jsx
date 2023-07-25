@@ -5,11 +5,16 @@ import { UserContext } from "../userContext/userContext";
 import { BiEdit } from "react-icons/bi";
 
 function CustomerDetailPage() {
+  // Get the customer ID from the URL parameters using useParams()
   const { id } = useParams();
+
+  // Define state variables to store customer information and user information from context
   const [customerInfo, setCustomerInfo] = useState(null);
   const { userInfo } = useContext(UserContext);
+
   const apiUrl = process.env.REACT_APP_API_URL;
 
+  // Fetch customer information from the server when the component mounts
   useEffect(() => {
     fetch(`${apiUrl}/createNewUser/${id}`, {
       method: "GET",
@@ -22,6 +27,7 @@ function CustomerDetailPage() {
       });
   }, []);
 
+  // If customer information is not available yet, render an empty string
   if (!customerInfo) {
     return "";
   }
@@ -29,14 +35,17 @@ function CustomerDetailPage() {
   return (
     <>
       <div className="post-page">
-        {userInfo.id===customerInfo.author._id && (<div className="edit-row">
-          <Link to={`/edit/${customerInfo._id}`} className="edit-btn">
-            <BiEdit />
-            Edit Details
-          </Link>
-        </div>)}
-        
-        <div style={{marginBottom:"10px"}}>
+        {/* Show "Edit Details" button only if the current user is the author of the customer */}
+        {userInfo.id === customerInfo.author._id && (
+          <div className="edit-row">
+            <Link to={`/edit/${customerInfo._id}`} className="edit-btn">
+              <BiEdit />
+              Edit Details
+            </Link>
+          </div>
+        )}
+
+        <div style={{ marginBottom: "10px" }}>
           <time>
             Created At:{" "}
             {format(new Date(customerInfo.createdAt), "MMM d yyyy HH:mm")}
@@ -44,6 +53,7 @@ function CustomerDetailPage() {
         </div>
       </div>
       <div className="post-page">
+        {/* Display customer details */}
         <div className="image">
           <img src={`${apiUrl}/` + customerInfo.cover} alt="img" />
         </div>

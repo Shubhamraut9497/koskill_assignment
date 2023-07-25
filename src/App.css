@@ -301,3 +301,8 @@ div.post-page a.edit-btn{
   color: #ffffff;
   margin-bottom: 10px;
 }
+.pegination_button{
+  display: flex;
+  justify-content: center;
+  margin:20px;
+}

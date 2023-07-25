@@ -9,31 +9,32 @@ function IndexPage() {
   const [loading, setLoading] = useState(false);
   const apiUrl = process.env.REACT_APP_API_URL;
   const [searchQuery, setSearchQuery] = useState("");
+console.log(currentPage);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch(
-          `${apiUrl}/createNewUser?search=${searchQuery}&limit=10&skip=${(currentPage - 1) * 10}`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        const data = await response.json();
-        setCustomers(data.customers);
-        setTotalPages(data.totalPages);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, [searchQuery, currentPage]);
+useEffect(() => {
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `${apiUrl}/createNewUser?search=${searchQuery}&limit=5&skip=${(currentPage - 1) * 5}&page=${currentPage}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await response.json();
+      setCustomers(data.customers);
+      setTotalPages(data.totalPages);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setLoading(false);
+    }
+  };
+  fetchData();
+}, [searchQuery, currentPage]);
 
   const handleDeleteCustomer = async (customerId) => {
     try {
@@ -58,28 +59,47 @@ function IndexPage() {
   };
 
   const handlePageChange = (page) => {
-    setCurrentPage(page);
+    // Ensure the page number is within the valid range
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage((prevPage) => (prevPage === page ? prevPage : page));
+    }
   };
+  
 
   const renderPagination = () => {
-    if (customers.length > 0) {
+    if (totalPages > 1) {
       const paginationItems = [];
       for (let i = 1; i <= totalPages; i++) {
         paginationItems.push(
-          <button
+          <span
             key={i}
-            className={currentPage === i ? "active" : ""}
+            className={currentPage === i ? "active" : "pagination-button"}
             onClick={() => handlePageChange(i)}
-            style={{width:"10%",borderRadius:"20px"}}
+            style={{
+              width: "30px",
+              height: "30px",
+              borderRadius: "50%",
+              cursor: "pointer",
+              marginTop:"20px",
+              display: "inline-flex",
+              justifyContent: "center",
+              alignItems: "center",
+              margin: "5px",
+              background: currentPage === i ? "blue" : "black",
+              border: "1px solid black",
+            }}
           >
             {i}
-          </button>
+          </span>
         );
       }
-      return <div className="pagination"  style={{ margin: "20px" }}>{paginationItems}</div>;
+      return <div className="pagination" style={{ display: "flex", justifyContent: "center",marginTop:"20px" }}>{paginationItems}</div>;
     }
     return null;
   };
+  
+  
+  
   
 
   return (
