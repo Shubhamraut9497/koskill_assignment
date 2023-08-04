@@ -54,7 +54,7 @@ export const LoginUser = async (req, res) => {
           }
           res.cookie("token", token).json({
             id: userDoc._id,
-            email,
+            email, 
           });
         },
         options
@@ -135,13 +135,11 @@ export const getCustomerData = async (req, res) => {
     const searchQuery = req.query.search;
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 5;
-
     let query = {};
 
     if (searchQuery) {
-      query.name = { $regex: searchQuery, $options: "i" };
+      query.name = { $regex: searchQuery, $options: "i" }; 
     }
-
     const count = await CustomerDetails.countDocuments(query);
     const totalPages = Math.ceil(count / limit);
     const skip = page * limit - limit;
@@ -151,7 +149,7 @@ export const getCustomerData = async (req, res) => {
       .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limit);
-
+      
     res.json({ customers, totalPages });
   } catch (error) {
     console.error("Error fetching customer data:", error);
