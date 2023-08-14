@@ -32,7 +32,6 @@ export const registerUser = async (req, res) => {
     console.log(err);
   }
 };
-
 // Controller function to log in a user
 export const LoginUser = async (req, res) => {
   try {
@@ -75,7 +74,7 @@ export const LoginUser = async (req, res) => {
 export const userProfile = async (req, res) => {
   const { token } = req.cookies;
   try {
-    // Verify the JWT token and return the decoded information as JSON response
+    // Verify the J WT token and return the decoded information as JSON response
     jwt.verify(token, SECRET_KEY, {}, (err, info) => {
       if (err) {
         throw err;
@@ -102,7 +101,6 @@ export const createNewUser = async (req, res) => {
     const ext = parts.length > 1 ? parts[parts.length - 1] : "";
     const newPath = path + "." + ext;
     fs.renameSync(path, newPath);
-
     const { token } = req.cookies;
     // Verify the JWT token and extract user ID from it
     jwt.verify(token, SECRET_KEY, {}, async (err, info) => {
@@ -149,7 +147,7 @@ export const getCustomerData = async (req, res) => {
       .sort({ createdAt: -1 })
       .skip(skip)
       .limit(limit);
-      
+
     res.json({ customers, totalPages });
   } catch (error) {
     console.error("Error fetching customer data:", error);
@@ -217,4 +215,4 @@ export const deleteCustomer = async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: "Failed to delete customer" });
   }
-};
+}

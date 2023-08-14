@@ -3,8 +3,8 @@ import { Navigate } from "react-router-dom";
 import { UserContext } from "../userContext/userContext";
 
 function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("PraveerPrakash@gmail.com");
+  const [password, setPassword] = useState("PraveerPrakash@123");
   const [redirect, setRedirect] = useState(false);
   const { userInfo, setUserInfo } = useContext(UserContext); // Retrieve values from the UserContext
   const apiUrl = process.env.REACT_APP_API_URL;

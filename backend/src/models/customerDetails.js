@@ -17,7 +17,7 @@ const CustomerSchema = new Schema(
   },
   { timestamps: true }
 );
-
+  
 const CustomerModel = mongoose.model("CustomerDetails", CustomerSchema);
 export default CustomerModel;
 
